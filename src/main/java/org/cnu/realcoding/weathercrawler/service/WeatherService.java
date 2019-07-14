@@ -33,7 +33,7 @@ public class WeatherService {
         });
     }
 
-    @Scheduled(initialDelay = 5000L, fixedDelay = 2000L)
+    @Scheduled(fixedDelay = 2000L)
     public void getCurrentWeatherPeriodicallyByCityName() throws IOException {
         if (cityNamesQueue.isEmpty()) {
             List<String> availableCityNames = this.getAvailableCityNames();
@@ -47,7 +47,7 @@ public class WeatherService {
 
         CurrentWeather currentWeatherFromDb = currentWeatherRepository.findCurrentWeatherByCityName(cityName);
 
-        if (currentWeatherFromDb == null || currentWeatherFromDb.getDt() != currentWeather.getDt()) {
+        if (currentWeatherFromDb == null || currentWeatherFromDb != currentWeather) {
             CurrentWeather insertedOrUpdatedCurrentWeather = currentWeatherRepository.insertOrUpdatedCurrentWeather(currentWeather);
             log.info("CurrentWeather has inserted or updated successfully. CurrentWeather : {}", insertedOrUpdatedCurrentWeather);
         }
