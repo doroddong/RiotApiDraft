@@ -14,19 +14,19 @@ import java.util.List;
  * http://localhost:8080/weather-crawler
  */
 @RestController
-@RequestMapping("/weather-crawler")
+@RequestMapping("/RiotGamesApi")
 public class WeatherController {
     @Autowired
     private WeatherService weatherService;
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("/available-cities")
+    @GetMapping("/available-summnorName")
     public List<String> getAvailableCityNames() throws IOException {
         return weatherService.getAvailableCityNames();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("/current-weathers/by-city-name/{cityName}")
+    @GetMapping("/current-summnor/by-summnors-name/{summnorName}")
     public CurrentWeather getCurrentWeatherByCityName(@PathVariable String cityName) {
         return weatherService.getCurrentWeatherByCityName(cityName);
     }

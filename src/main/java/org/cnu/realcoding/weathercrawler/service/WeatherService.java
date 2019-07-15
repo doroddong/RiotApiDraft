@@ -56,4 +56,12 @@ public class WeatherService {
     public CurrentWeather getCurrentWeatherByCityName(String cityName) {
         return currentWeatherRepository.findCurrentWeatherByCityName(cityName);
     }
+
+/*
+    //내가 개발
+    public String getEncryptedSummonorIDbySummnorName(String cityName)
+    {
+        return currentWeatherRepository.findCurrentWeatherByCityName();
+    }
+ */
 }

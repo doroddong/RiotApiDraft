@@ -12,10 +12,11 @@ public class OpenWeatherMapApiClient {
     private RestTemplate restTemplate;
 
     private final String apiKey = "RGAPI-f808ec4b-bd0f-4961-845d-11ab54e6fc77";
-    private final String currentWeatherUri = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{cityName}?api_key={apiKey}";
+
+    private final String currentSummnor = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{cityName}?api_key={apiKey}";
 
     public CurrentWeather getCurrentWeather(String cityName) {
-        CurrentWeather currentWeather = restTemplate.exchange(currentWeatherUri, HttpMethod.GET, null, CurrentWeather.class, cityName, apiKey)
+        CurrentWeather currentWeather = restTemplate.exchange(currentSummnor, HttpMethod.GET, null, CurrentWeather.class, cityName, apiKey)
                 .getBody();
         return currentWeather;
     }
