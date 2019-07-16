@@ -11,7 +11,7 @@ public class OpenWeatherMapApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String apiKey = "RGAPI-f808ec4b-bd0f-4961-845d-11ab54e6fc77";
+    private final String apiKey = "RGAPI-6a061c31-7be4-455d-a50d-fef5968260a7";
 
     private final String currentSummnor = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{cityName}?api_key={apiKey}";
 
