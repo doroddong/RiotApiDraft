@@ -2,11 +2,13 @@
 package org.cnu.realcoding.weathercrawler.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 @Data
-public class SummnorGameGrade {
+public class SummonerGameGrade {
     private String queueType;
-    private String summnorName;
+    @Id
+    private String summonerName;
     private boolean hotStreak;
     private int wins;
     private boolean veteran;
@@ -16,6 +18,6 @@ public class SummnorGameGrade {
     private boolean inactive;
     private boolean freshBlood;
     private String leagueId;
-    private String summnorId;
+    private String summonerId;
     private int leaguePoints;
 }

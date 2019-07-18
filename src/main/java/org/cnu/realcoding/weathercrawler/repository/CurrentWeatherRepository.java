@@ -1,6 +1,6 @@
 package org.cnu.realcoding.weathercrawler.repository;
 
-import org.cnu.realcoding.weathercrawler.domain.CurrentWeather;
+import org.cnu.realcoding.weathercrawler.domain.SummonerInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -9,17 +9,18 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CurrentWeatherRepository {
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public CurrentWeather insertOrUpdatedCurrentWeather(CurrentWeather currentWeather) {
-        return mongoTemplate.save(currentWeather);
+    public SummonerInformation insertOrUpdatedCurrentWeather(SummonerInformation summonerInformation) {
+        return mongoTemplate.save(summonerInformation);
     }
 
-    public CurrentWeather findCurrentWeatherByCityName(String cityName) {
+    public SummonerInformation findCurrentSummnorBySummnorName(String summonerName) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("name").is(cityName));
+        query.addCriteria(Criteria.where("name").is(summonerName));
 
-        return mongoTemplate.findOne(query, CurrentWeather.class);
+        return mongoTemplate.findOne(query, SummonerInformation.class);
     }
 }
